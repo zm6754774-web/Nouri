@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#10070d">
+<title>إلى نوري ❤️</title>
+<style>
+  :root {
+    --wine: #8f2347;
+    --rose: #f1a2bd;
+    --cream: #fff0e7;
+    --muted: #d7bac6;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; min-height: 100%; }
+  body {
+    min-height: 100vh;
+    color: var(--cream);
+    font-family: Tahoma, Arial, sans-serif;
+    background:
+      radial-gradient(ellipse at 50% 10%, rgba(143,35,71,.32), transparent 45%),
+      linear-gradient(145deg, #09060a 0%, #1b0a13 50%, #09060a 100%);
+    overflow-x: hidden;
+  }
+  .grain {
+    position: fixed; inset: 0; pointer-events: none; z-index: 1; opacity: .12;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.22'/%3E%3C/svg%3E");
+  }
+  .glow {
+    position: fixed; width: 320px; height: 320px; border-radius: 50%;
+    filter: blur(80px); opacity: .17; pointer-events: none;
+    background: #c52c60; animation: glow 9s ease-in-out infinite alternate;
+  }
+  .glow.one { top: -100px; right: -100px; }
+  .glow.two { bottom: -140px; left: -100px; background: #6e1b45; animation-delay: -4s; }
+  @keyframes glow { from { transform: translate(0,0) scale(.9); } to { transform: translate(25px,-15px) scale(1.12); } }
+  #hearts { position: fixed; inset: 0; overflow: hidden; pointer-events: none; z-index: 2; }
+  .heart {
+    position: absolute; bottom: -40px; color: #f5a2bd; opacity: 0;
+    text-shadow: 0 0 14px rgba(245,162,189,.65);
+    animation: floatUp linear forwards;
+  }
+  @keyframes floatUp {
+    0% { transform: translateY(0) rotate(0deg) scale(.7); opacity: 0; }
+    12% { opacity: .65; }
+    85% { opacity: .45; }
+    100% { transform: translateY(-110vh) rotate(28deg) scale(1.25); opacity: 0; }
+  }
+  main {
+    position: relative; z-index: 3; min-height: 100vh; display: grid;
+    place-items: center; padding: 28px 16px;
+  }
+  .screen { width: min(100%, 680px); }
+  .login-card, .letter-card {
+    border: 1px solid rgba(241,162,189,.24);
+    background: linear-gradient(150deg, rgba(43,18,31,.84), rgba(15,8,13,.9));
+    box-shadow: 0 25px 90px rgba(0,0,0,.48), inset 0 1px rgba(255,255,255,.04);
+    border-radius: 26px; backdrop-filter: blur(14px);
+  }
+  .login-card { max-width: 440px; margin: auto; padding: 34px 26px; text-align: center; }
+  .eyebrow { color: var(--rose); letter-spacing: 3px; font-size: 11px; margin-bottom: 18px; }
+  .big-heart { font-size: 43px; filter: drop-shadow(0 0 18px rgba(241,162,189,.5)); animation: pulse 2s ease-in-out infinite; }
+  @keyframes pulse { 0%,100% { transform: scale(1); } 50% { transform: scale(1.1); } }
+  h1 { font-size: clamp(27px, 6vw, 40px); margin: 14px 0 10px; font-weight: 500; }
+  .sub { color: var(--muted); line-height: 1.9; font-size: 14px; }
+  .password-wrap { display: flex; gap: 8px; margin-top: 24px; }
+  input {
+    flex: 1; min-width: 0; padding: 14px 15px; border-radius: 13px;
+    border: 1px solid rgba(241,162,189,.27); background: rgba(0,0,0,.26);
+    color: white; outline: none; font-size: 16px; text-align: center;
+  }
+  input:focus { border-color: var(--rose); box-shadow: 0 0 0 3px rgba(241,162,189,.09); }
+  button {
+    border: 0; border-radius: 13px; padding: 13px 17px; cursor: pointer;
+    background: linear-gradient(135deg, #b93663, #79213f); color: white;
+    font: inherit; box-shadow: 0 8px 24px rgba(143,35,71,.28);
+    transition: transform .2s, filter .2s;
+  }
+  button:hover { transform: translateY(-1px); filter: brightness(1.12); }
+  .error { min-height: 22px; color: #ff9db5; font-size: 13px; margin-top: 12px; }
+  .tiny { color: #a98b99; font-size: 11px; margin-top: 17px; }
+  .hidden { display: none !important; }
+  .letter-card { padding: clamp(23px, 5vw, 42px); position: relative; overflow: hidden; }
+  .letter-card:before {
+    content: "✦"; position: absolute; top: 18px; left: 22px; color: rgba(241,162,189,.45); font-size: 24px;
+  }
+  .letter-head { text-align: center; margin-bottom: 24px; }
+  .letter-head .tag { color: var(--rose); font-size: 11px; letter-spacing: 2px; }
+  .letter-head h2 { font-size: clamp(28px, 6vw, 38px); font-weight: 500; margin: 12px 0 6px; }
+  .letter-head p { color: var(--muted); margin: 0; font-size: 13px; }
+  .letter-body { color: #f9e8ee; font-size: clamp(15px, 2.8vw, 17px); line-height: 2.15; white-space: pre-line; }
+  .letter-body p { margin: 0 0 18px; }
+  .signature { text-align: center; margin-top: 28px; color: var(--rose); font-size: 21px; }
+  .footer-note { text-align: center; color: #b69aa6; font-size: 11px; margin-top: 22px; }
+  .reveal { animation: appear 1.3s ease both; }
+  @keyframes appear { from { opacity: 0; transform: translateY(14px); filter: blur(4px); } to { opacity: 1; transform: translateY(0); filter: blur(0); } }
+  #loading { text-align: center; padding: 50px 10px; }
+  .dots { display: flex; justify-content: center; gap: 8px; margin-top: 20px; }
+  .dots span { width: 7px; height: 7px; border-radius: 50%; background: var(--rose); animation: bounce 1s infinite ease-in-out; }
+  .dots span:nth-child(2) { animation-delay: .15s; } .dots span:nth-child(3) { animation-delay: .3s; }
+  @keyframes bounce { 0%,80%,100% { transform: translateY(0); opacity: .45; } 40% { transform: translateY(-8px); opacity: 1; } }
+  @media (max-width: 480px) {
+    .password-wrap { flex-direction: column; }
+    .login-card { padding: 30px 20px; }
+    .letter-card { border-radius: 20px; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; scroll-behavior: auto !important; }
+  }
+</style>
+</head>
+<body>
+<div class="glow one"></div><div class="glow two"></div>
+<div id="hearts" aria-hidden="true"></div><div class="grain"></div>
+<main>
+  <section id="loginScreen" class="screen">
+    <div class="login-card">
+      <div class="eyebrow">A LITTLE SOMETHING FOR YOU</div>
+      <div class="big-heart">♡</div>
+      <h1>إلى نوري ❤️</h1>
+      <p class="sub">فيه كلام صغير مستنيكي هنا…<br>بس الأول، ادخلي بالمفتاح بتاعك.</p>
+      <form id="passwordForm">
+        <div class="password-wrap">
+          <input id="password" type="password" placeholder="الباسورد" autocomplete="off" aria-label="الباسورد" required>
+          <button type="submit">افتحي رسالتك ✨</button>
+        </div>
+        <div id="error" class="error" role="status"></div>
+      </form>
+      <div class="tiny">MADE WITH LOVE, JUST FOR YOU</div>
+    </div>
+  </section>
+
+  <section id="loadingScreen" class="screen hidden">
+    <div id="loading">
+      <div class="big-heart">♥</div>
+      <h1>لحظة بس يا نوري…</h1>
+      <p class="sub">بنجهزلك الكلام اللي من القلب ❤️</p>
+      <div class="dots"><span></span><span></span><span></span></div>
+    </div>
+  </section>
+
+  <section id="letterScreen" class="screen hidden">
+    <article class="letter-card reveal">
+      <header class="letter-head">
+        <div class="tag">A LETTER FROM MY HEART</div>
+        <h2>يا نوري ❤️</h2>
+        <p>حبيت أسيبلك حاجة حلوة تصحي عليها</p>
+      </header>
+      <div class="letter-body">
+        <p>بصي يا نورهان، أنا مش عارف أقولك إيه بالظبط، بس كل اللي عاوزك تعرفيه إنك بقيتي فارقة معايا أوي، وإنك مش زي أي حد عندي. وده مش مجرد كلام بقولهولك عشان أفرحك، لا والله، ده إحساس بجد جوايا. ❤️</p>
+        <p>أنا عاوزك تبقي عارفة إن مهما حصل بينا أو اختلفنا في حاجة، ده مش معناه إننا نبعد عن بعض أو إن مكانة حد فينا تتغير عند التاني. إحنا لسه بنتعرف على بعض، ولسه قدامنا حاجات كتير نفهمها عن بعض ونعيشها سوا. 🫂❤️</p>
+        <p>وصدقيني، أنا مش عاوزك تحسي في يوم إنك لوحدك في العلاقة دي، أو إنك إنتِ اللي بتحاولي تقربي بس. أنا عاوزنا إحنا الاتنين نبقى عاوزين بعض، ونفرح ببعض، ونحاول عشان بعض، عشان إنتِ بالنسبالي مش حد عادي أبدًا يا نور. 🥹</p>
+        <p>ويمكن أنا مش بعرف أعبّرلك كل مرة بالطريقة اللي تستاهليها، ويمكن ساعات كلامي أو تصرفاتي ميوصلوش اللي جوايا صح، بس ده مش معناه أبدًا إنك قليلة عندي أو إن وجودك بقى عادي. بالعكس، إنتِ ليكي مكانة عندي أكبر من إني أعرف أوصفها بالكلام. ❤️</p>
+        <p>أنا بحب إنك بقيتي جزء من يومي، وبحب فكرة إن لسه قدامنا حاجات كتير نعيشها ونفرح بيها سوا، وإن كل يوم نعرف بعض فيه أكتر يبقى سبب إننا نقرب من بعض أكتر. نفسي تبقي مطمنة معايا، وتبقي على طبيعتك، وتحسي إنك محبوبة ومقدّرة، مش بالكلام بس، لكن في معاملتي ليكي كمان. 🫶🏻</p>
+        <p>فلو في يوم اتلخبطت في التعبير أو معرفتش أوصلك اللي جوايا، افتكري إن ده مش معناه إنك مش فارقة. أنا مبسوط إنك في حياتي، ونفسي اللي بينا يكمل ونفضل نختار بعض كل يوم، ونبقى سبب راحة وفرحة لبعض. ❤️</p>
+        <p>صباح الخير يا نورهان، يا نوري… أتمنى تصحي وإنتِ مبسوطة، ويبدأ يومك بابتسامة حلوة زيك. يمكن الرسالة دي متقولش كل اللي جوايا، بس حبيت تكون أول حاجة حلوة تقابلك، وتفكّرك إن فيه حد بيتمنالك الخير والفرحة، وإنك غالية عنده بجد. ❤️😘</p>
+      </div>
+      <div class="signature">بحبك يا نوري ❤️</div>
+      <div class="footer-note">ONE LITTLE PAGE, A LOT OF LOVE ✦</div>
+    </article>
+  </section>
+</main>
+<script>
+  const hearts = document.getElementById('hearts');
+  const heartSymbols = ['♡', '♥', '❤', '✧'];
+  function makeHeart() {
+    const heart = document.createElement('span');
+    heart.className = 'heart';
+    heart.textContent = heartSymbols[Math.floor(Math.random() * heartSymbols.length)];
+    heart.style.left = (Math.random() * 100) + 'vw';
+    heart.style.fontSize = (12 + Math.random() * 20) + 'px';
+    heart.style.animationDuration = (7 + Math.random() * 7) + 's';
+    hearts.appendChild(heart);
+    setTimeout(() => heart.remove(), 15000);
+  }
+  for (let i = 0; i < 12; i++) setTimeout(makeHeart, i * 350);
+  setInterval(makeHeart, 650);
+
+  const form = document.getElementById('passwordForm');
+  const passwordInput = document.getElementById('password');
+  const error = document.getElementById('error');
+  form.addEventListener('submit', function (event) {
+    event.preventDefault();
+    if (passwordInput.value.trim().toLowerCase() !== 'nouri') {
+      error.textContent = 'الباسورد مش مظبوط يا نوري، جرّبي تاني ❤️';
+      passwordInput.value = '';
+      passwordInput.focus();
+      return;
+    }
+    error.textContent = '';
+    document.getElementById('loginScreen').classList.add('hidden');
+    document.getElementById('loadingScreen').classList.remove('hidden');
+    setTimeout(() => {
+      document.getElementById('loadingScreen').classList.add('hidden');
+      document.getElementById('letterScreen').classList.remove('hidden');
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }, 5000);
+  });
+</script>
+</body>
+</html>
